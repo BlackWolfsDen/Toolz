@@ -14,7 +14,7 @@ int main()
     int EntryIdStrt;
     int Tiers;
     int Pclass;
-    int8_t Tclass;
+    int Tclass;
     cout<<"Hello noob!\n";
     cout<<"Welcome to a stupid little tool.\n";
     cout<<"Enter Starting Id for Item entry Id: ";
@@ -34,10 +34,10 @@ int main()
             cout<<"Stat type: ";
             cin>>StatData[a][1];
             cin.ignore();
-            cout<<"Stat >>a<< start Minimum amount: ";
+            cout<<"Stat "<< a <<"  start Minimum amount: ";
             cin>>StatData[a][2];
             cin.ignore();
-            cout<<"Stat >>a<< end Maximum amount: ";
+            cout<<"Stat "<< a <<" end Maximum amount: ";
             cin>>StatData[a][3];
             cin.ignore();
             StatData[a][4]=StatData[a][3]/Tiers;
