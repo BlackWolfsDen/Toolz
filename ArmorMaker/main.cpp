@@ -10,7 +10,7 @@ int Tiers;
 int Pclass;
 int Armorlvl;
 int Armor[4]={0,0,0,0};
-int Iclass = 1;
+int Iclass = 4;
 int Iquality = 4;
 int DispId[11][8]={
 {1,2,3,4,5,6,7,8},
@@ -26,11 +26,11 @@ int DispId[11][8]={
 {1011,1012,1013,1014,1015,1016,1017,1018}
 		};
 int InvData[9]={0,1,3,5,6,7,8,9,10};
-char InvName[8][10]={{"Head"},{"Shoulder"},{"Chest"},{"Waist"},{"legs"},{"Feet"},{"Wrists"},{"Hands"}};
+char InvName[9][10]={{""},{"Head"},{"Shoulder"},{"Chest"},{"Waist"},{"legs"},{"Feet"},{"Wrists"},{"Hands"}};
 char ClassName[11][12]={{""},{"Warrior"},{"Paladin"},{"Hunter"},{"Rogue"},{"Priest"},{"DeathKnight"},{"Shaman"},{"Mage"},{"Warlock"},{"Druid"}};
 int ClassData[11][2]={{0,0},{1,4},{2,4},{4,3},{8,2},{16,1},{32,4},{64,3},{128,1},{256,1},{1024,2}};
 int StatData[11][4]={{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}};
-int Socket[3]={0,0,0};
+int Socket[4]={0,0,0,0};
 int main()
 {
     cout<<"Hello noob!\n";
@@ -79,18 +79,19 @@ int main()
             for(t=1;t<=Tiers;t=t+1)
             {
                 SQLfile <<"Tier-"<< t <<"\n";
-                for(i=1;i<=8;i=i+1);
+                for(i=1;i<=8;i=i+1)
                 {
-                    SQLfile << ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][2] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i] <<"_T"<< t <<", "<< DispId[t][i] <<"', "<< Iquality <<", 1, "<< InvData[i] <<", " << ClassData[Pclass][2] <<", "<< Armor <<", "<< Statcnt <<", ";
-                        for(sc=1;sc<=10;sc=sc+1);
+                    SQLfile << "("<< ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][2] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i][10] <<"_T"<< t <<", "<< DispId[t][i] <<"', "<< Iquality <<", 1, "<< InvData[i] <<", " << ClassData[Pclass][2] <<", "<< Armorlvl <<", "<< Statcnt <<"";
+                        for(sc=1;sc<=10;sc=sc+1)
                             {
-                                SQLfile << StatData[sc][1] <<", " << (StatData[sc][2]+((StatData[sc][3]*t)-StatData[sc][3])) <<"' ";
+                                SQLfile <<", "<< StatData[sc][1] <<", " << (StatData[sc][2]+((StatData[sc][3]*t)-StatData[sc][3])) <<"";
                             }
-                    SQLfile << (Armor[1]+((Armor[3]*t)-Armor[3])) <<", ";
-                        for(gc=1;gc<=3;gc=gc+1);
+                    SQLfile <<", "<< (Armor[1]+((Armor[3]*t)-Armor[3])) <<"";
+                        for(gc=1;gc<=3;gc=gc+1)
                             {
-                                SQLfile << Socket[gc] <<", ";
+                                SQLfile << ", "<< Socket[gc] <<"";
                             }
+                            SQLfile << "),\n";
                 }
             }
         SQLfile.close();
