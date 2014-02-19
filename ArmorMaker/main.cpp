@@ -4,12 +4,13 @@
 using namespace std;
 
 int Statcnt;
-int a;
-int t;
+int a,t,i;
 int EntryIdStrt;
 int Tiers;
 int Pclass;
 int Armor;
+int Iclass = 1;
+int Iquality = 4;
 int DispId[11][8]={
 {1,2,3,4,5,6,7,8},
 {1111,1112,1113,1114,1115,1116,1117,1118},
@@ -28,7 +29,7 @@ char InvName[8][10]={{"Head"},{"Shoulder"},{"Chest"},{"Waist"},{"legs"},{"Feet"}
 char ClassName[11][12]={{""},{"Warrior"},{"Paladin"},{"Hunter"},{"Rogue"},{"Priest"},{"DeathKnight"},{"Shaman"},{"Mage"},{"Warlock"},{"Druid"}};
 int ClassData[11][2]={{0,0},{1,4},{2,4},{4,3},{8,2},{16,1},{32,4},{64,3},{128,1},{256,1},{1024,2}};
 int StatData[11][4]={{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}};
-
+int Socket[1][3]={0,0,0};
 int main()
 {
     cout<<"Hello noob!\n";
@@ -63,13 +64,17 @@ int main()
             StatData[a][4]=StatData[a][3]/Tiers;
             cout<<""<< StatData[a][4] <<"\n";
         }
-  ofstream SQLfile;
-  SQLfile.open ("Armor.sql");
-  SQLfile << "REPLACE INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `BuyCount`, `InventoryType`, `AllowableClass`, `ItemLevel`, `StatsCount`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `stat_type4`, `stat_value4`, `stat_type5`, `stat_value5`, `stat_type6`, `stat_value6`, `stat_type7`, `stat_value7`, `stat_type8`, `stat_value8`, `stat_type9`, `stat_value9`, `stat_type10`, `stat_value10`, `armor`, `socketColor_1`, `socketColor_2`, `socketColor_3`) VALUES\n\n";
+        ofstream SQLfile;
+        SQLfile.open ("Armor.sql");
+        SQLfile << "REPLACE INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `BuyCount`, `InventoryType`, `AllowableClass`, `ItemLevel`, `StatsCount`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `stat_type4`, `stat_value4`, `stat_type5`, `stat_value5`, `stat_type6`, `stat_value6`, `stat_type7`, `stat_value7`, `stat_type8`, `stat_value8`, `stat_type9`, `stat_value9`, `stat_type10`, `stat_value10`, `armor`, `socketColor_1`, `socketColor_2`, `socketColor_3`) VALUES\n\n";
+        SQLfile <<""<< ClassName[Pclass] <<" ";
             for(t=1;t<=Tiers;t=t+1)
                 SQLfile <<"Tier-"<< t <<"\n";
-  SQLfile.close();
-  return 0;
+                for(i=1;i<=8;i=i+1);
+                   SQLfile << ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][2] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i] <<"_T"<< t <<", "<< DispId[t][i] <<"', "<< Iquality <<", 1, "<< InvData[i] <<", " << ClassData[Pclass][2] <<", "<< Armor <<", ";
+//                   SQLfile <<
+        SQLfile.close();
+return 0;
 
 };
 
