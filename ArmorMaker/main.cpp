@@ -1,8 +1,15 @@
 #include <iostream>
 
 using namespace std;
-int main()
 
+int Statcnt;
+int a;
+int ClassName[10][3];
+int DispId[10][8];
+int InvData[8][2];
+int StatData[10][4];
+
+int main()
 {
     int EntryIdStrt;
     int Tiers;
@@ -10,37 +17,30 @@ int main()
     int8_t Tclass;
     cout<<"Hello noob!\n";
     cout<<"Welcome to a stupid little tool.\n";
-    cout<<"Enter Starting Id for Item entry Id:";
+    cout<<"Enter Starting Id for Item entry Id: ";
     cin>>EntryIdStrt;
     cin.ignore();
-//    cout<<"Starting entryID: "<<EntryIdStrt<<"\n";
-    cout<<"How many tiers(bundles):";
+    cout<<"How many tiers(bundles): ";
     cin>>Tiers;
-   cin.ignore();
-  //   cout<<"Tiers: "<<Tiers<<"\n";
-    cout<<"Player Class6(1-10):";
+    cin.ignore();
+    cout<<"Player Class(1-10): ";
     cin>>Pclass;
     cin.ignore();
-
-struct Tclass
-{
-    uint8_t Classid, Cbitmask;
-    std::string Classname;
-    uint8_t Carmorbit;
+    cout<<"How many Stats(max 10): ";
+    cin>>Statcnt;
+    cin.ignore();
+         for(a=1;a<=Statcnt;a=a+1)
+         {
+            cout<<"Stat type: ";
+            cin>>StatData[a][1];
+            cin.ignore();
+            cout<<"Stat >>a<< start Minimum amount: ";
+            cin>>StatData[a][2];
+            cin.ignore();
+            cout<<"Stat >>a<< end Maximum amount: ";
+            cin>>StatData[a][3];
+            cin.ignore();
+            StatData[a][4]=StatData[a][3]/Tiers;
+        }
 };
 
-Tclass Xclass [] =
-{
-{1, 1, "Warrior", 4 },
-{2, 2, "Paladin", 4 },
-{3, 4, "Hunter", 3 },
-{4, 8, "Rogue", 2 },
-{5, 16, "Priest", 1 },
-{6, 32, "DeathKnight", 4 },
-{7, 64, "Shaman", 3 },
-{8, 128, "Mage", 1 },
-{9, 256, "Warlock", 1 },
-{10, 1024, "Druid", 2 },
-};
-
-}
