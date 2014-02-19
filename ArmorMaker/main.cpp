@@ -1,3 +1,4 @@
+// another stupid lil tool from the mad scientist @ emudevs.com slp13at420
 #include <iostream>
 #include <fstream>
 
@@ -69,7 +70,7 @@ int main()
             cout<<"Stat "<< a <<" Maximum amount: ";
             cin>>StatData[a][3];
             cin.ignore();
-            StatData[a][4]=StatData[a][3]/Tiers;
+            StatData[a][4]=(StatData[a][3]-StatData[a][1])/Tiers;
             cout<<""<< StatData[a][4] <<"\n";
         };
             for(j=1;j<=3;j=j+1)
@@ -88,7 +89,7 @@ int main()
 
                 for(i=1;i<=8;i=i+1)
                 {
-                   SQLfile << ",\n("<< ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][2] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i] <<"_T"<< t <<", "<< DispId[t][i] <<"', "<< Iquality <<", 1, "<< InvData[i] <<", " << ClassData[Pclass][2] <<", "<< Armorlvl <<", "<< Statcnt <<"";
+                   SQLfile << ",\n("<< ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][2] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i] <<"_T"<< t <<"', "<< DispId[t][i] <<", "<< Iquality <<", 1, "<< InvData[i] <<", " << ClassData[Pclass][2] <<", "<< Armorlvl <<", "<< Statcnt <<"";
                         for(sc=1;sc<=10;sc=sc+1)
                             {
                                 SQLfile <<", "<< StatData[sc][1] <<", " << (StatData[sc][2]+((StatData[sc][3]*t)-StatData[sc][3])) <<"";
