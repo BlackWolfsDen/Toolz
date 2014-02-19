@@ -7,8 +7,8 @@ int a;
 int DispId[10][8];
 int InvData[8][2];
 int StatData[10][4];
-char ClassName[10][12]={{"Warrior"},{"Paladin"},{"Hunter"},{"Rogue"},{"Priest"},{"DeathKnight"},{"Shaman"},{"Mage"},{"Warlock"},{"Druid"}};
-int ClassData[10][2]={{1,4},{2,4},{4,3},{8,2},{16,1},{32,4},{64,3},{128,1},{256,1},{1024,2}};
+char ClassName[11][12]={{""},{"Warrior"},{"Paladin"},{"Hunter"},{"Rogue"},{"Priest"},{"DeathKnight"},{"Shaman"},{"Mage"},{"Warlock"},{"Druid"}};
+int ClassData[11][2]={{0,0},{1,4},{2,4},{4,3},{8,2},{16,1},{32,4},{64,3},{128,1},{256,1},{1024,2}};
 
 int main()
 {
@@ -32,6 +32,7 @@ int main()
     cin.ignore();
          for(a=1;a<=Statcnt;a=a+1)
          {
+            cout<<"Class "<< ClassName[Pclass] <<"\n";
             cout<<"Stat "<< a <<" type: ";
             cin>>StatData[a][1];
             cin.ignore();
