@@ -13,8 +13,8 @@ int Armorlvl;
 int Armor[4]={0,0,0,0};
 int Iclass = 4;
 int Iquality = 4;
-int DispId[12][9]={
-{},
+int DispId[12][9]={//done this way to expand the table 3d for class plotting later
+{0,0,0,0,0,0,0,0,0},
 {0,1111,1112,1113,1114,1115,1116,1117,1118},
 {0,2221,2222,2223,2224,2225,2226,2227,2228},
 {0,3221,3222,3223,3224,3225,3226,3227,3228},
