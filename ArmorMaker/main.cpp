@@ -81,13 +81,14 @@ int main()
         ofstream SQLfile;
         SQLfile.open ("Armor.sql");
         SQLfile << "REPLACE INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `BuyCount`, `InventoryType`, `AllowableClass`, `ItemLevel`, `StatsCount`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `stat_type4`, `stat_value4`, `stat_type5`, `stat_value5`, `stat_type6`, `stat_value6`, `stat_type7`, `stat_value7`, `stat_type8`, `stat_value8`, `stat_type9`, `stat_value9`, `stat_type10`, `stat_value10`, `armor`, `socketColor_1`, `socketColor_2`, `socketColor_3`) VALUES\n\n";
-        SQLfile <<""<< ClassName[Pclass] <<" ";
+        SQLfile <<"\n-- "<< ClassName[Pclass] <<" ";
             for(t=1;t<=Tiers;t=t+1)
             {
-                SQLfile <<"Tier-"<< t <<"\n";
+                SQLfile <<",\n-- Tier-"<< t <<"\n-- ";
+
                 for(i=1;i<=8;i=i+1)
                 {
-                    SQLfile << "("<< ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][2] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i] <<"_T"<< t <<", "<< DispId[t][i] <<"', "<< Iquality <<", 1, "<< InvData[i] <<", " << ClassData[Pclass][2] <<", "<< Armorlvl <<", "<< Statcnt <<"";
+                   SQLfile << ",\n("<< ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][2] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i] <<"_T"<< t <<", "<< DispId[t][i] <<"', "<< Iquality <<", 1, "<< InvData[i] <<", " << ClassData[Pclass][2] <<", "<< Armorlvl <<", "<< Statcnt <<"";
                         for(sc=1;sc<=10;sc=sc+1)
                             {
                                 SQLfile <<", "<< StatData[sc][1] <<", " << (StatData[sc][2]+((StatData[sc][3]*t)-StatData[sc][3])) <<"";
@@ -97,9 +98,10 @@ int main()
                             {
                                 SQLfile << ", "<< Socket[gc] <<"";
                             }
-                            SQLfile << "),\n";
+                            SQLfile << ")";
+                     }
                 }
-            }
+        SQLfile << ";\n";
         SQLfile.close();
 return 0;
 
