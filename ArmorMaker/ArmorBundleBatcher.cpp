@@ -36,12 +36,17 @@ int main()
 {
     cout<<"Hello noob!\n";
     cout<<"Welcome to my stupid little tool.\n\n";
+    cout<<"This will belch out a skeletal structure of armor tiers in an sql file.\n";
+    cout<<"fill in the blanks and it it will make a file in working /dir\n";
+    cout<<"open the sql edit to fine tune your gearz name and display id. have fun :D\n\n";
     cout<<"Enter Starting Id for Item entry Id: ";
     cin>>EntryIdStrt;
     cin.ignore();
     cout<<"How many tiers(bundles): ";
     cin>>Tiers;
     cin.ignore();
+    cout<<"\n(1=Warrior :: 2=Paladin :: 3=Hunter :: 4=Rogue :: 5=Priest)\n";
+    cout<<"(6=DK :: 7=Shaman :: 8=Mage :: 9=Warlock :: 10=Druid)\n";
     cout<<"Player Class(1-10): ";
     cin>>Pclass;
     cin.ignore();
@@ -61,7 +66,7 @@ int main()
          for(a=1;a<=Statcnt;a=a+1)
          {
             cout<<"Class "<< ClassName[Pclass] <<"\n";
-            cout<<"Stat "<< a <<" type: ";
+            cout<<"Stat "<< a <<" type ID: ";
             cin>>StatData[a][1];
             cin.ignore();
             cout<<"Stat "<< a <<" Minimum amount: ";
@@ -89,7 +94,7 @@ int main()
 
                 for(i=1;i<=8;i=i+1)
                 {
-                   SQLfile << ",\n("<< ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][2] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i] <<"_T"<< t <<"', "<< DispId[t][i] <<", "<< Iquality <<", 1, "<< InvData[i] <<", " << ClassData[Pclass][2] <<", "<< Armorlvl <<", "<< Statcnt <<"";
+                   SQLfile << ",\n("<< ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][1] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i] <<"_T"<< t <<"', "<< DispId[t][i] <<", "<< Iquality <<", 1, "<< InvData[i] <<", " << ClassData[Pclass][0] <<", "<< Armorlvl <<", "<< Statcnt <<"";
                         for(sc=1;sc<=10;sc=sc+1)
                             {
                                 SQLfile <<", "<< StatData[sc][1] <<", " << (StatData[sc][2]+((StatData[sc][4]*t)-StatData[sc][4])) <<"";
