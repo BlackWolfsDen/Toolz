@@ -4,11 +4,12 @@
 using namespace std;
 
 int Statcnt;
-int a,t,i;
+int a,t,i,sc,gc;
 int EntryIdStrt;
 int Tiers;
 int Pclass;
-int Armor;
+int Armorlvl;
+int Armor[4]={0,0,0,0};
 int Iclass = 1;
 int Iquality = 4;
 int DispId[11][8]={
@@ -29,7 +30,7 @@ char InvName[8][10]={{"Head"},{"Shoulder"},{"Chest"},{"Waist"},{"legs"},{"Feet"}
 char ClassName[11][12]={{""},{"Warrior"},{"Paladin"},{"Hunter"},{"Rogue"},{"Priest"},{"DeathKnight"},{"Shaman"},{"Mage"},{"Warlock"},{"Druid"}};
 int ClassData[11][2]={{0,0},{1,4},{2,4},{4,3},{8,2},{16,1},{32,4},{64,3},{128,1},{256,1},{1024,2}};
 int StatData[11][4]={{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}};
-int Socket[1][3]={0,0,0};
+int Socket[3]={0,0,0};
 int main()
 {
     cout<<"Hello noob!\n";
@@ -44,8 +45,15 @@ int main()
     cin>>Pclass;
     cin.ignore();
     cout<<"Armor Items Level: ";
-    cin>>Armor;
+    cin>>Armorlvl;
     cin.ignore();
+    cout<<"Armor minimum: ";
+    cin>>Armor[1];
+    cin.ignore();
+     cout<<"Armor Maximum: ";
+    cin>>Armor[2];
+    cin.ignore();
+    Armor[3]=Armor[2]/Tiers;
     cout<<"How many Stats(max 10): ";
     cin>>Statcnt;
     cin.ignore();
@@ -69,10 +77,22 @@ int main()
         SQLfile << "REPLACE INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `BuyCount`, `InventoryType`, `AllowableClass`, `ItemLevel`, `StatsCount`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `stat_type4`, `stat_value4`, `stat_type5`, `stat_value5`, `stat_type6`, `stat_value6`, `stat_type7`, `stat_value7`, `stat_type8`, `stat_value8`, `stat_type9`, `stat_value9`, `stat_type10`, `stat_value10`, `armor`, `socketColor_1`, `socketColor_2`, `socketColor_3`) VALUES\n\n";
         SQLfile <<""<< ClassName[Pclass] <<" ";
             for(t=1;t<=Tiers;t=t+1)
+            {
                 SQLfile <<"Tier-"<< t <<"\n";
                 for(i=1;i<=8;i=i+1);
-                   SQLfile << ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][2] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i] <<"_T"<< t <<", "<< DispId[t][i] <<"', "<< Iquality <<", 1, "<< InvData[i] <<", " << ClassData[Pclass][2] <<", "<< Armor <<", ";
-//                   SQLfile <<
+                {
+                    SQLfile << ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][2] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i] <<"_T"<< t <<", "<< DispId[t][i] <<"', "<< Iquality <<", 1, "<< InvData[i] <<", " << ClassData[Pclass][2] <<", "<< Armor <<", "<< Statcnt <<", ";
+                        for(sc=1;sc<=10;sc=sc+1);
+                            {
+                                SQLfile << StatData[sc][1] <<", " << (StatData[sc][2]+((StatData[sc][3]*t)-StatData[sc][3])) <<"' ";
+                            }
+                    SQLfile << (Armor[1]+((Armor[3]*t)-Armor[3])) <<", ";
+                        for(gc=1;gc<=3;gc=gc+1);
+                            {
+                                SQLfile << Socket[gc] <<", ";
+                            }
+                }
+            }
         SQLfile.close();
 return 0;
 
