@@ -54,7 +54,7 @@ int main()
      cout<<"Armor Maximum: ";
     cin>>Armor[2];
     cin.ignore();
-    Armor[3]=Armor[2]/Tiers;
+    Armor[3]=(Armor[2]-Armor[1])/(Tiers-1);
     cout<<"How many Stats(max 10): ";
     cin>>Statcnt;
     cin.ignore();
@@ -70,7 +70,7 @@ int main()
             cout<<"Stat "<< a <<" Maximum amount: ";
             cin>>StatData[a][3];
             cin.ignore();
-            StatData[a][4]=(StatData[a][3]-StatData[a][1])/Tiers;
+            StatData[a][4]=(StatData[a][3]-StatData[a][2])/(Tiers-1);
             cout<<""<< StatData[a][4] <<"\n";
         };
             for(j=1;j<=3;j=j+1)
@@ -92,7 +92,7 @@ int main()
                    SQLfile << ",\n("<< ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][2] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i] <<"_T"<< t <<"', "<< DispId[t][i] <<", "<< Iquality <<", 1, "<< InvData[i] <<", " << ClassData[Pclass][2] <<", "<< Armorlvl <<", "<< Statcnt <<"";
                         for(sc=1;sc<=10;sc=sc+1)
                             {
-                                SQLfile <<", "<< StatData[sc][1] <<", " << (StatData[sc][2]+((StatData[sc][3]*t)-StatData[sc][3])) <<"";
+                                SQLfile <<", "<< StatData[sc][1] <<", " << (StatData[sc][2]+((StatData[sc][4]*t)-StatData[sc][4])) <<"";
                             }
                     SQLfile <<", "<< (Armor[1]+((Armor[3]*t)-Armor[3])) <<"";
                         for(gc=1;gc<=3;gc=gc+1)
