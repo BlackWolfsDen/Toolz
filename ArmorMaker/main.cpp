@@ -4,10 +4,11 @@ using namespace std;
 
 int Statcnt;
 int a;
-int ClassName[10][3];
 int DispId[10][8];
 int InvData[8][2];
 int StatData[10][4];
+char ClassName[10][12]={{"Warrior"},{"Paladin"},{"Hunter"},{"Rogue"},{"Priest"},{"DeathKnight"},{"Shaman"},{"Mage"},{"Warlock"},{"Druid"}};
+int ClassData[10][2]={{1,4},{2,4},{4,3},{8,2},{16,1},{32,4},{64,3},{128,1},{256,1},{1024,2}};
 
 int main()
 {
@@ -31,7 +32,7 @@ int main()
     cin.ignore();
          for(a=1;a<=Statcnt;a=a+1)
          {
-            cout<<"Stat type: ";
+            cout<<"Stat "<< a <<" type: ";
             cin>>StatData[a][1];
             cin.ignore();
             cout<<"Stat "<< a <<"  start Minimum amount: ";
@@ -41,6 +42,8 @@ int main()
             cin>>StatData[a][3];
             cin.ignore();
             StatData[a][4]=StatData[a][3]/Tiers;
+            cout<<""<< StatData[a][4] <<"\n";
         }
+
 };
 
