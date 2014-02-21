@@ -1,4 +1,4 @@
-// my first C++ script . 3D Array's, adapting loops, inputs/outputs, and file manipulating
+// my first C++ script . 3D Array's, adapting loops, inputs/outputs, and file manipulating noob shit but hey :D
 // another stupid lil tool from the mad scientist @ emudevs.com slp13at420
 #include <iostream>
 #include <fstream>
@@ -9,8 +9,8 @@ int a,t,i,j,sc,gc;
 int Statcnt,EntryIdStrt,Tiers,Pclass,Armorlvl,Iquality;
 int Iclass = 4;
 int Buycnt = 1;
-int DispId[11][11][9]={//done this way to expand the table 3d for class plotting later
-{{}},//nul no touchy touchy . \/ 8 entries per, 10 groups per, 10 classes. DISPLAY ID'Z
+int DispId[11][11][9]={
+{{}},
 {{0,0,0,0,0,0,0,0,0},//warrior
 {0,1111,1112,1113,1114,1115,1116,1117,1118},
 {0,2221,2222,2223,2224,2225,2226,2227,2228},
