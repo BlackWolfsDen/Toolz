@@ -1,4 +1,4 @@
-// my first C++ script . 3D Array's, adapting loops, inputs/outputs, and file manipulating noob shit but hey :D
+// my first C++ script . 3D Array's, adapting loops, inputs/outputs, and file manipulating. noob shit but hey :D
 // another stupid lil tool from the mad scientist @ emudevs.com slp13at420
 #include <iostream>
 #include <fstream>
