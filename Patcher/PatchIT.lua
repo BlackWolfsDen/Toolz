@@ -1,4 +1,5 @@
--- Laurea version stable and extrememly fast ... EXTREMELY FAST !!
+-- Laurea version stable and extrememly fast ... EXTREMELY FAST !! not quite sure how . i tried to make my own version like this 
+-- and it would crash at last second but would create all but last entry lol oh well its all for the learning :D
 -- this will rebuild a whole new item.dbc file with ALL entries. (may not be sequential). output found in world folder.
 local RequiredRank = 5 --3 is default admin rank on TC
 
