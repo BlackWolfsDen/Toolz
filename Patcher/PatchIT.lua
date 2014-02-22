@@ -1,5 +1,5 @@
 -- Laurea version stable and extrememly fast ... EXTREMELY FAST !!
--- this will rebuild a whole new item.dbc file with ALL entries. (may not be sequential).found in world folder.
+-- this will rebuild a whole new item.dbc file with ALL entries. (may not be sequential). output found in world folder.
 local RequiredRank = 5 --3 is default admin rank on TC
 
 --template function
