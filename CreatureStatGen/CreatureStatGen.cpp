@@ -16,6 +16,7 @@ int armor[3]={0,0,0};
 int matp[3]={0,0,0};
 int ratp[3]={0,0,0};
 int damageB[3]={0,0,0};
+int lvlf=255;
 int main()
 {
     cout<<"Hello noob!\n";
@@ -39,7 +40,7 @@ int main()
     cout<<"Base HP 0 max value: ";
     cin>>hpa[1];
     cin.ignore();
-    hpa[2]=((hpa[1]-hpa[0])/(255-lvls));
+    hpa[2]=((hpa[1]-hpa[0])/(lvlf-lvls));
 
     cout<<"Base HP 1 start value: ";
     cin>>hpb[0];
@@ -47,7 +48,7 @@ int main()
     cout<<"Base HP 1 max value: ";
     cin>>hpb[1];
     cin.ignore();
-    hpb[2]=((hpb[1]-hpb[0])/(255-lvls));
+    hpb[2]=((hpb[1]-hpb[0])/(lvlf-lvls));
 
     cout<<"Base HP 2 start value: ";
     cin>>hpc[0];
@@ -55,7 +56,7 @@ int main()
     cout<<"Base HP 2 max value: ";
     cin>>hpc[1];
     cin.ignore();
-    hpc[2]=((hpc[1]-hpc[0])/(255-lvls));
+    hpc[2]=((hpc[1]-hpc[0])/(lvlf-lvls));
 
     cout<<"Base Mana start value: ";
     cin>>mana[0];
@@ -63,7 +64,7 @@ int main()
     cout<<"Base Mana max value: ";
     cin>>mana[1];
     cin.ignore();
-    mana[2]=((mana[1]-mana[0])/(255-lvls));
+    mana[2]=((mana[1]-mana[0])/(lvlf-lvls));
 
     cout<<"Base Armor start value: ";
     cin>>armor[0];
@@ -71,7 +72,7 @@ int main()
     cout<<"Base armor max value: ";
     cin>>armor[1];
     cin.ignore();
-    armor[2]=((armor[1]-armor[0])/(255-lvls));
+    armor[2]=((armor[1]-armor[0])/(lvlf-lvls));
 
     cout<<"Base melee Attack power Start value: ";
     cin>>matp[0];
@@ -79,7 +80,7 @@ int main()
     cout<<"Base melee Attack power MAX value: ";
     cin>>matp[1];
     cin.ignore();
-    matp[2]=((matp[1]-matp[0])/(255-lvls));
+    matp[2]=((matp[1]-matp[0])/(lvlf-lvls));
 
     cout<<"Base range Attack power Start value: ";
     cin>>ratp[0];
@@ -87,7 +88,7 @@ int main()
     cout<<"Base range Attack power MAX value: ";
     cin>>ratp[1];
     cin.ignore();
-    ratp[2]=((ratp[1]-ratp[0])/(255-lvls));
+    ratp[2]=((ratp[1]-ratp[0])/(lvlf-lvls));
 
     cout<<"Base damage Start value: ";
     cin>>damageB[0];
@@ -95,14 +96,14 @@ int main()
     cout<<"Base damage MAX value: ";
     cin>>damageB[1];
     cin.ignore();
-    damageB[2]=((damageB[1]-damageB[0])/(255-lvls));
+    damageB[2]=((damageB[1]-damageB[0])/(lvlf-lvls));
 
     ofstream SQLfile;
     SQLfile.open ("Creature_Class_Stats.sql");
     SQLfile << "REPLACE INTO `creature_classlevelstats` (`level`, `class`, `basehp0`, `basehp1`, `basehp2`, `basemana`, `basearmor`, `attackpower`, `rangedattackpower`, `damage_base`) VALUES\n";
-    SQLfile <<"\n-- Class "<< cclass <<" levels: "<< lvls <<"-255";
+    SQLfile <<"\n-- Class "<< cclass <<" levels: "<< lvls <<"-"<< lvlf <<"";
 
-        for(l=lvls;l<=255;l=l+1)
+        for(l=lvls;l<=lvlf;l=l+1)
            {
                 SQLfile << ",\n("<< l <<", "<< cclass <<", "<< hpa[0] <<", "<< hpb[0] <<", "<< hpc[0] <<", "<< mana[0] <<", "<< armor[0] <<", "<< matp[0] <<", "<< ratp[0] <<", "<< damageB[0] <<")";
                 hpa[0]=(hpa[0]+hpa[2]);
