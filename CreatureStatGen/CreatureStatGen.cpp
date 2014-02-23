@@ -1,7 +1,6 @@
--- another stupid lil tool from the mad scientist @ emudevs.com slp13at420
--- this will create an sql of creatur class level stats. 1 class at a time 
--- just enter data and poof an sqll file in you working /dir/.
--- you may need to change some column unassigned or Datatype for higher values.
+// another stupid lil tool from the mad scientist of emudevs.com slp13at420
+// this will create an sql of creatur class level stats. 1 class at a time
+// just enter data and poof an sqll file in you working /dir/.
 
 #include <iostream>
 #include <fstream>
@@ -14,6 +13,9 @@ int hpb[3]={0,0,0};
 int hpc[3]={0,0,0};
 int mana[3]={0,0,0};
 int armor[3]={0,0,0};
+int matp[3]={0,0,0};
+int ratp[3]={0,0,0};
+int damageB[3]={0,0,0};
 int main()
 {
     cout<<"Hello noob!\n";
@@ -71,14 +73,38 @@ int main()
     cin.ignore();
     armor[2]=((armor[1]-armor[0])/(255-lvls));
 
+    cout<<"Base melee Attack power Start value: ";
+    cin>>matp[0];
+    cin.ignore();
+    cout<<"Base melee Attack power MAX value: ";
+    cin>>matp[1];
+    cin.ignore();
+    matp[2]=((matp[1]-matp[0])/(255-lvls));
+
+    cout<<"Base range Attack power Start value: ";
+    cin>>ratp[0];
+    cin.ignore();
+    cout<<"Base range Attack power MAX value: ";
+    cin>>ratp[1];
+    cin.ignore();
+    ratp[2]=((ratp[1]-ratp[0])/(255-lvls));
+
+    cout<<"Base damage Start value: ";
+    cin>>damageB[0];
+    cin.ignore();
+    cout<<"Base damage MAX value: ";
+    cin>>damageB[1];
+    cin.ignore();
+    damageB[2]=((damageB[1]-damageB[0])/(255-lvls));
+
     ofstream SQLfile;
     SQLfile.open ("Creature_Class_Stats.sql");
-    SQLfile << "REPLACE INTO `creature_classlevelstats` (`level`, `class`, `basehp0`, `basehp1`, `basehp2`, `basemana`, `basearmor`) VALUES\n\n";
+    SQLfile << "REPLACE INTO `creature_classlevelstats` (`level`, `class`, `basehp0`, `basehp1`, `basehp2`, `basemana`, `basearmor`, `attackpower`, `rangedattackpower`, damage_base`) VALUES\n";
     SQLfile <<"\n--Class "<< cclass <<" levels: "<< lvls <<"-255";
 
         for(l=lvls;l<=255;l=l+1)
            {
-                SQLfile << ",\n("<< l <<", "<< cclass <<", "<< hpa[0] <<", "<< hpb[0] <<", "<< hpc[0] <<", "<< mana[0] <<", "<< armor[0] <<")";
+                SQLfile << ",\n("<< l <<", "<< cclass <<", "<< hpa[0] <<", "<< hpb[0] <<", "<< hpc[0] <<", "<< mana[0] <<", "<< armor[0] <<", "<< matp[0] <<", "<< ratp[0] <<", "<< damageB[0] <<")";
                 hpa[0]=(hpa[0]+hpa[2]);
                 hpb[0]=(hpb[0]+hpb[2]);
                 hpc[0]=(hpc[0]+hpc[2]);
