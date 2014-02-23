@@ -1,6 +1,7 @@
 -- another stupid lil tool from the mad scientist @ emudevs.com slp13at420
 -- this will create an sql of creatur class level stats. 1 class at a time 
 -- just enter data and poof an sqll file in you working /dir/.
+-- you may need to change some column unassigned or Datatype for higher values.
 
 #include <iostream>
 #include <fstream>
