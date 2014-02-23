@@ -1,4 +1,4 @@
-Enter file contents here#include <iostream>
+#include <iostream>
 #include <fstream>
 
 using namespace std;
