@@ -99,8 +99,8 @@ int main()
 
     ofstream SQLfile;
     SQLfile.open ("Creature_Class_Stats.sql");
-    SQLfile << "REPLACE INTO `creature_classlevelstats` (`level`, `class`, `basehp0`, `basehp1`, `basehp2`, `basemana`, `basearmor`, `attackpower`, `rangedattackpower`, damage_base`) VALUES\n";
-    SQLfile <<"\n--Class "<< cclass <<" levels: "<< lvls <<"-255";
+    SQLfile << "REPLACE INTO `creature_classlevelstats` (`level`, `class`, `basehp0`, `basehp1`, `basehp2`, `basemana`, `basearmor`, `attackpower`, `rangedattackpower`, `damage_base`) VALUES\n";
+    SQLfile <<"\n-- Class "<< cclass <<" levels: "<< lvls <<"-255";
 
         for(l=lvls;l<=255;l=l+1)
            {
@@ -110,6 +110,9 @@ int main()
                 hpc[0]=(hpc[0]+hpc[2]);
                 mana[0]=(mana[0]+mana[2]);
                 armor[0]=(armor[0]+armor[2]);
+                matp[0]=(matp[0]+matp[2]);
+                ratp[0]=(ratp[0]+ratp[2]);
+                damageB[0]=(damageB[0]+damageB[2]);
            }
     SQLfile << ";\n";
     SQLfile.close();
