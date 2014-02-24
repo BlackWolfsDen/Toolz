@@ -20,7 +20,7 @@ int lvlf=255;
 int main()
 {
     cout<<"Hello noob!\n";
-    cout<<"Welcome to my stupid little tool.\n\n";
+    cout<<"slp13at420 of EmuDevs.com here with another stupid lil tool for the stonerz tool box.\n";
     cout<<"This will belch out a Creature level stat values from xxx up to 255 in an sql file.\n";
     cout<<"fill in the blanks and it it will make a file in working /dir\n";
     cout<<"open the sql edit to fine tune then grind it in. have fun :D\n\n";
