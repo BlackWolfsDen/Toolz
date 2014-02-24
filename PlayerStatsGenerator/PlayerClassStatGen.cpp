@@ -1,5 +1,7 @@
 // another stupid lil tool from the mad scientist of Emudevs.com slp13at420
 // creates player class stats for level a to level z (health and mana)
+// testing for level 1-80 health i found 0.08438 for modifier is kinda close to blizzlike kinda
+// but i set this up so you may do small blocks for fine tuning the level curve.
 
 #include <iostream>
 #include <fstream>
