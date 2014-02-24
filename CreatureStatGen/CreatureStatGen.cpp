@@ -8,6 +8,7 @@
 using namespace std;
 
 int l,lvls,cclass;
+int cnt=0;
 int hpa[3]={0,0,0};
 int hpb[3]={0,0,0};
 int hpc[3]={0,0,0};
@@ -34,15 +35,15 @@ int main()
     cin>>lvls;
     cin.ignore();
 
-    cout<<"Base HP 0 start value: ";
+    cout<<"\nBase HP 0 start value: ";
     cin>>hpa[0];
     cin.ignore();
     cout<<"Base HP 0 max value: ";
     cin>>hpa[1];
     cin.ignore();
-    hpa[2]=((hpa[1]-hpa[0])/(lvlf-lvls));
+    hpa[2]=(hpa[1]-hpa[0])/((lvlf)-(lvls));
 
-    cout<<"Base HP 1 start value: ";
+    cout<<"\nBase HP 1 start value: ";
     cin>>hpb[0];
     cin.ignore();
     cout<<"Base HP 1 max value: ";
@@ -50,7 +51,7 @@ int main()
     cin.ignore();
     hpb[2]=((hpb[1]-hpb[0])/(lvlf-lvls));
 
-    cout<<"Base HP 2 start value: ";
+    cout<<"\nBase HP 2 start value: ";
     cin>>hpc[0];
     cin.ignore();
     cout<<"Base HP 2 max value: ";
@@ -58,7 +59,7 @@ int main()
     cin.ignore();
     hpc[2]=((hpc[1]-hpc[0])/(lvlf-lvls));
 
-    cout<<"Base Mana start value: ";
+    cout<<"\nBase Mana start value: ";
     cin>>mana[0];
     cin.ignore();
     cout<<"Base Mana max value: ";
@@ -66,7 +67,7 @@ int main()
     cin.ignore();
     mana[2]=((mana[1]-mana[0])/(lvlf-lvls));
 
-    cout<<"Base Armor start value: ";
+    cout<<"\nBase Armor start value: ";
     cin>>armor[0];
     cin.ignore();
     cout<<"Base armor max value: ";
@@ -74,7 +75,7 @@ int main()
     cin.ignore();
     armor[2]=((armor[1]-armor[0])/(lvlf-lvls));
 
-    cout<<"Base melee Attack power Start value: ";
+    cout<<"\nBase melee Attack power Start value: ";
     cin>>matp[0];
     cin.ignore();
     cout<<"Base melee Attack power MAX value: ";
@@ -82,7 +83,7 @@ int main()
     cin.ignore();
     matp[2]=((matp[1]-matp[0])/(lvlf-lvls));
 
-    cout<<"Base range Attack power Start value: ";
+    cout<<"\nBase range Attack power Start value: ";
     cin>>ratp[0];
     cin.ignore();
     cout<<"Base range Attack power MAX value: ";
@@ -90,7 +91,7 @@ int main()
     cin.ignore();
     ratp[2]=((ratp[1]-ratp[0])/(lvlf-lvls));
 
-    cout<<"Base damage Start value: ";
+    cout<<"\nBase damage Start value: ";
     cin>>damageB[0];
     cin.ignore();
     cout<<"Base damage MAX value: ";
@@ -105,15 +106,8 @@ int main()
 
         for(l=lvls;l<=lvlf;l=l+1)
            {
-                SQLfile << ",\n("<< l <<", "<< cclass <<", "<< hpa[0] <<", "<< hpb[0] <<", "<< hpc[0] <<", "<< mana[0] <<", "<< armor[0] <<", "<< matp[0] <<", "<< ratp[0] <<", "<< damageB[0] <<")";
-                hpa[0]=(hpa[0]+hpa[2]);
-                hpb[0]=(hpb[0]+hpb[2]);
-                hpc[0]=(hpc[0]+hpc[2]);
-                mana[0]=(mana[0]+mana[2]);
-                armor[0]=(armor[0]+armor[2]);
-                matp[0]=(matp[0]+matp[2]);
-                ratp[0]=(ratp[0]+ratp[2]);
-                damageB[0]=(damageB[0]+damageB[2]);
+                SQLfile << ",\n("<< l <<", "<< cclass <<", "<< hpa[0]+(hpa[2]*cnt) <<", "<< hpb[0]+(hpb[2]*cnt) <<", "<< hpc[0]+(hpc[2]*cnt) <<", "<< mana[0]+(mana[2]*cnt) <<", "<< armor[0]+(armor[2]*cnt) <<", "<< matp[0]+(matp[2]*cnt) <<", "<< ratp[0]+(ratp[2]*cnt) <<", "<< damageB[0]+(damageB[2]*cnt) <<")";
+                cnt=cnt+1;
            }
     SQLfile << ";\n";
     SQLfile.close();
