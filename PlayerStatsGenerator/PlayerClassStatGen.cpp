@@ -50,7 +50,7 @@ int main()
     cin.ignore();
 
     ofstream SQLfile;
-        SQLfile.open ("Creature_Class_Stats.sql");
+        SQLfile.open ("player_ClasslevelStats.sql");
         SQLfile << "REPLACE INTO `player_classlevelstats` (`class`, `level`, `basehp`, `basemana`) VALUES\n";
         SQLfile <<"\n-- Class "<< cclass <<" levels: "<< lvls <<"-"<< lvle <<"";
 
