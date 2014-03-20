@@ -1,70 +1,67 @@
-// another stupid lil tool from the mad scientist of Emudevs.com slp13at420
-// creates player class stats for level a to level z (health and mana)
-// testing for level 1-80 health i found 0.08438 for modifier is kinda close to blizzlike kinda
-// but i set this up so you may do small blocks for fine tuning the level curve.
+// another stupid lil tool from the mad scientist of emudevs.com slp13at420
+// this will create an sql of creatur class level stats. 1 class at a time
+// just enter data and poof an sqll file in you working /dir/.
 
 #include <iostream>
 #include <fstream>
 
 using namespace std;
 
-int cclass,lvls,lvle,bhp,bm,l;
-float bhpm,bmm;
+int cclass,lvls,hps,hpf,manas,manaf,l,bhp,bmn;
+int lvlf=255;
+
 int main()
 {
     cout<<"Hello noob!\n";
     cout<<"slp13at420 of EmuDevs.com here with another stupid lil tool for the stonerz tool box.\n";
-    cout<<"This will belch out a player class level stats values from level x to lvl x in an sql file.\n";
+    cout<<"This will belch out a player class level stat values from xxx up to 255 in an sql file.\n";
     cout<<"fill in the blanks and it it will make a file in working /dir\n";
     cout<<"open the sql edit to fine tune then grind it in. have fun :D\n\n";
-    cout<<"use this to populate the unpopulated levels of player class(health,mana) for a better lvl 255 experience.\n";
+    cout<<"use this to populate the unpopulated levels of creatures for a better lvl 255 experience.\n";
+    cout<<"(1=Warrior ::2=Paladin ::3=Hunter ::4=Rogue ::5=Priest ::6=DK ::7=Shaman ::8=Mage ::9=Warlock ::11=Druid)\n";
 
-    cout<<"\nPlayer Class ID's:";
-    cout<<"\n(1=Warrior) (2=Paladin) (3=Hunter) (4=Rogue) (5=Priest)";
-    cout<<"\n(6=Death Knight)(7=Shaman) (8=Mage) (9=Warlock) (11=Druid)\n";
-
-    cout<<"\nEnter Class Id: ";
+    cout<<"Enter Class Id: ";
     cin>>cclass;
     cin.ignore();
 
-    cout<<"\nStart level: ";
+    cout<<"Enter start Level: ";
     cin>>lvls;
     cin.ignore();
-    cout<<"Stop level: ";
-    cin>>lvle;
+
+    cout<<"Enter start HP: ";
+    cin>>hps;
+    cin.ignore();
+    bhp=hps;
+
+    cout<<"Enter end HP: ";
+    cin>>hpf;
     cin.ignore();
 
-    cout<<"\nBase HP start value: ";
-    cin>>bhp;
+    cout<<"Enter start Mana: ";
+    cin>>manas;
     cin.ignore();
-    cout<<"HP % modifier(~0.08438) value: ";
-    cin>>bhpm;
-    cin.ignore();
+    bmn=manas;
 
-    cout<<"\nBase mana start value: ";
-    cin>>bm;
-    cin.ignore();
-
-    cout<<"Mana % modifier(~0.08438) value: ";
-    cin>>bmm;
+    cout<<"Enter end Mana: ";
+    cin>>manaf;
     cin.ignore();
 
     ofstream SQLfile;
-        SQLfile.open ("player_ClasslevelStats.sql");
-        SQLfile << "REPLACE INTO `player_classlevelstats` (`class`, `level`, `basehp`, `basemana`) VALUES\n";
-        SQLfile <<"\n-- Class "<< cclass <<" levels: "<< lvls <<"-"<< lvle <<"";
+    SQLfile.open ("Player_Class_Level_Stats.sql");
+    SQLfile << "REPLACE INTO `player_classlevelstats` (`class`, `level`, `basehp`, `basemana`) VALUES\n";
+    SQLfile <<"\n-- Class "<< cclass <<" levels: "<< lvls <<"-"<< lvlf <<"";
 
-            for(l=lvls;l<=lvle;l=l+1)
-            {
-                SQLfile << ",\n("<< cclass <<", "<< l <<", "<< bhp <<", "<< bm <<")";
-                bhp=(bhp+(bhp*bhpm));
-                bm=(bm+(bm*bmm));
-            }
-
+        for(l=lvls;l<=lvlf;l=l+1)
+           {
+                SQLfile << ",\n("<< cclass <<", "<< l <<", "<< bhp <<", "<< bmn <<")";
+                bhp=bhp+((hpf-hps)/(lvlf-lvls));
+                bmn=bmn+((manaf-manas)/(lvlf-lvls));
+           }
     SQLfile << ";\n";
     SQLfile.close();
 
 return 0;
 
 }
+
 
