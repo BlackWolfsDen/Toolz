@@ -17,7 +17,7 @@ int main()
     cout<<"This will belch out a player class level stat values from xxx up to 255 in an sql file.\n";
     cout<<"fill in the blanks and it it will make a file in working /dir\n";
     cout<<"open the sql edit to fine tune then grind it in. have fun :D\n\n";
-    cout<<"use this to populate the unpopulated levels of creatures for a better lvl 255 experience.\n";
+    cout<<"use this to populate the unpopulated player class level stats for a better lvl 255 experience.\n";
     cout<<"(1=Warrior ::2=Paladin ::3=Hunter ::4=Rogue ::5=Priest ::6=DK ::7=Shaman ::8=Mage ::9=Warlock ::11=Druid)\n";
 
     cout<<"Enter Class Id: ";
