@@ -1,4 +1,3 @@
-// Enter file contents here
 // another stupid lil tool from the mad scientist of Emudevs.com slp13at420
 // creates player level stats for level a to level z
 
@@ -7,17 +6,16 @@
 
 using namespace std;
 
-int race,cclass,lvls,str,agi,sta,inte,spi,l;
+int race,cclass,lvls,lvlf,str,agi,sta,inte,spi,l;
 float strm,agim,stam,intem,spim;
-int lvle=255;
+
 int main()
 {
     cout<<"Hello noob!\n";
     cout<<"slp13at420 of EmuDevs.com here with another stupid lil tool for the stonerz tool box.\n";
-    cout<<"This will belch out a player_LevelStats values from level x to lvl x in an sql file.\n";
+    cout<<"This will belch out a player_LevelStats values from level x to lvl xxx in an sql file.\n";
     cout<<"fill in the blanks and it it will make a file in working /dir\n";
-    cout<<"open the sql edit to fine tune then grind it in. have fun :D\n";
-    cout<<"this will take some time for you to create each and every combination race/class.\n";
+    cout<<"open the sql edit to fine tune then grind it in. have fun :D\n\n";
     cout<<"use this to populate the unpopulated levels of player_LevelStats for a better lvl 255 experience.\n";
 
     cout<<"\nPlayer Race ID's:";
@@ -36,6 +34,10 @@ int main()
 
     cout<<"\nEnter level Start: ";
     cin>>lvls;
+    cin.ignore();
+
+    cout<<"\nEnter level finish: ";
+    cin>>lvlf;
     cin.ignore();
 
     cout<<"\nEnter Agility Start: ";
@@ -70,9 +72,9 @@ int main()
     ofstream SQLfile;
         SQLfile.open ("Player_LevelStats.sql");
         SQLfile << "REPLACE INTO `player_levelstats` (`race`, `class`, `level`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES\n";
-        SQLfile <<"\n-- Race "<< race <<" Class "<< cclass <<" levels: "<< lvls <<"-"<< lvle <<"";
+        SQLfile <<"\n-- Race "<< race <<" Class "<< cclass <<" levels: "<< lvls <<"-"<< lvlf <<"";
 
-            for(l=lvls;l<=lvle;l=l+1)
+            for(l=lvls;l<=lvlf;l=l+1)
             {
                 SQLfile << ",\n("<< race <<", "<< cclass <<", "<< l <<", "<< str <<", "<< agi <<", "<< sta <<", "<< inte <<", "<< spi <<")";
                 str=(str+(str*strm));
