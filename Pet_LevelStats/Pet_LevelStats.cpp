@@ -12,7 +12,7 @@ int main()
 {
     cout<<"Hello noob!\n";
     cout<<"slp13at420 of EmuDevs.com here with another stupid lil tool for the stonerz tool box.\n";
-    cout<<"This will belch out a Pet_LevelStats values from level x to lvl x in an sql file.\n";
+    cout<<"This will belch out a Pet_LevelStats values from level x to lvl xxx in an sql file.\n";
     cout<<"fill in the blanks and it it will make a file in working /dir\n";
     cout<<"open the sql to grind it in. have fun :D\n\n";
     cout<<"use this to populate the unpopulated levels of Pet_LevelStats for a better lvl 255 experience.\n";
