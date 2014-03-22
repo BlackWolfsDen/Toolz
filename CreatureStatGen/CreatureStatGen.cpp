@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int l,lvls,cclass;
+int l,lvls,lvlf,cclass;
 int cnt=0;
 int hpa[3]={0,0,0};
 int hpb[3]={0,0,0};
@@ -17,7 +17,7 @@ int armor[3]={0,0,0};
 int matp[3]={0,0,0};
 int ratp[3]={0,0,0};
 int damageB[3]={0,0,0};
-int lvlf=255;
+
 int main()
 {
     cout<<"Hello noob!\n";
@@ -33,6 +33,10 @@ int main()
 
     cout<<"Start level: ";
     cin>>lvls;
+    cin.ignore();
+
+    cout<<"End level: ";
+    cin>>lvlf;
     cin.ignore();
 
     cout<<"\nBase HP 0 start value: ";
