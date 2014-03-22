@@ -1,5 +1,5 @@
 // another stupid lil tool from the mad scientist of emudevs.com slp13at420
-// this will create an sql of creatur class level stats. 1 class at a time
+// this will create an sql of player class level stats. 1 class at a time
 // just enter data and poof an sqll file in you working /dir/.
 
 #include <iostream>
@@ -18,7 +18,7 @@ int main()
     cout<<"fill in the blanks and it it will make a file in working /dir\n";
     cout<<"open the sql edit to fine tune then grind it in. have fun :D\n\n";
     cout<<"use this to populate the unpopulated player class level stats for a better lvl 255 experience.\n";
-    cout<<"(1=Warrior ::2=Paladin ::3=Hunter ::4=Rogue ::5=Priest ::6=DK ::7=Shaman ::8=Mage ::9=Warlock ::11=Druid)\n";
+    cout<<"\n(1=Warrior ::2=Paladin ::3=Hunter ::4=Rogue ::5=Priest ::6=DK ::7=Shaman ::8=Mage ::9=Warlock ::11=Druid)\n";
 
     cout<<"Enter Class Id: ";
     cin>>cclass;
