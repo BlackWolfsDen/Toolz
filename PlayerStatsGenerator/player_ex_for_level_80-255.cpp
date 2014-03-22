@@ -18,7 +18,7 @@ int main()
     cin>>xps;
     cin.ignore();
 
-    cout<<"\n lvl 255 Experiance end value: ";
+    cout<<"\n lvl 255 Experience end value: ";
     cin>>xpf;
     cin.ignore();
     int xpr=xps;
