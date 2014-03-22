@@ -1,5 +1,5 @@
 // another stupid lil tool from the mad scientist of Emudevs.com slp13at420
-// creates player level stats for level a to level z
+// creates pet level stats for level a to level z
 
 #include <iostream>
 #include <fstream>
@@ -16,7 +16,7 @@ int main()
     cout<<"fill in the blanks and it it will make a file in working /dir\n";
     cout<<"open the sql to grind it in. have fun :D\n\n";
     cout<<"use this to populate the unpopulated levels of Pet_LevelStats for a better lvl 255 experience.\n";
-    cout<<"I recommend you refer to your db for the proper pet ID.\n";
+    cout<<"I recommend you refer to your db for the proper pet IDs.\n";
 
     cout<<"\nPet ID:";
     cin>>pet;
