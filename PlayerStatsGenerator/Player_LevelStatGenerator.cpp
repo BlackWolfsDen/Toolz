@@ -16,7 +16,8 @@ int main()
     cout<<"slp13at420 of EmuDevs.com here with another stupid lil tool for the stonerz tool box.\n";
     cout<<"This will belch out a player_LevelStats values from level x to lvl x in an sql file.\n";
     cout<<"fill in the blanks and it it will make a file in working /dir\n";
-    cout<<"open the sql edit to fine tune then grind it in. have fun :D\n\n";
+    cout<<"open the sql edit to fine tune then grind it in. have fun :D\n";
+    cout<<"this will take some time for you to create each and every combination race/class.\n";
     cout<<"use this to populate the unpopulated levels of player_LevelStats for a better lvl 255 experience.\n";
 
     cout<<"\nPlayer Race ID's:";
