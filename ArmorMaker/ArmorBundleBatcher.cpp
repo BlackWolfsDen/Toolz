@@ -9,6 +9,8 @@ int a,t,i,j,sc,gc;
 int Statcnt,EntryIdStrt,Tiers,Pclass,Armorlvl,Iquality;
 int Iclass = 4;
 int Buycnt = 1;
+
+// these next blocks of data are for each class' item display id 1-8(across) and tiers 1-10(down)
 int DispId[11][11][9]={
 {{}},
 {{0,0,0,0,0,0,0,0,0},//warrior
@@ -122,13 +124,13 @@ int DispId[11][11][9]={
 {0,9991,9992,9993,9994,9995,9996,9997,9998},
 {0,1011,1012,1013,1014,1015,1016,1017,1018}},
 		};
-int InvData[9]={0,1,3,5,6,7,8,9,10};
-int ClassData[11][2]={{0,0},{1,4},{2,4},{4,3},{8,2},{16,1},{32,4},{64,3},{128,1},{256,1},{1024,2}};
+int InvData[9]={0,1,3,5,6,7,8,9,10}; // Inv type sequence
+int ClassData[11][2]={{0,0},{1,4},{2,4},{4,3},{8,2},{16,1},{32,4},{64,3},{128,1},{256,1},{1024,2}}; // class' armor type ie. cloth
 int StatData[11][4]={{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0},{0,0,0}};
 int Armor[4]={0,0,0,0};
 int Socket[4]={0,0,0,0};
-char InvName[9][10]={{""},{"Head"},{"Shoulder"},{"Chest"},{"Waist"},{"Legs"},{"Feet"},{"Wrist"},{"Hands"}};
-char ClassName[11][12]={{""},{"Warrior"},{"Paladin"},{"Hunter"},{"Rogue"},{"Priest"},{"DeathKnight"},{"Shaman"},{"Mage"},{"Warlock"},{"Druid"}};
+char InvName[9][10]={{""},{"Head"},{"Shoulder"},{"Chest"},{"Waist"},{"Legs"},{"Feet"},{"Wrist"},{"Hands"}};// inv type name sequence
+char ClassName[11][12]={{""},{"Warrior"},{"Paladin"},{"Hunter"},{"Rogue"},{"Priest"},{"DeathKnight"},{"Shaman"},{"Mage"},{"Warlock"},{"Druid"}};// class name sequence
 
 int main()
 {
@@ -156,20 +158,21 @@ int main()
     cin>>Iquality;
     cin.ignore();
 
+    cout<<"\n-level required-";
     cout<<"Armor Level: ";
     cin>>Armorlvl;
     cin.ignore();
 
-    cout<<"Armor minimum: ";
+    cout<<"\nArmor minimum: ";
     cin>>Armor[1];
     cin.ignore();
 
      cout<<"Armor Maximum: ";
     cin>>Armor[2];
     cin.ignore();
-
     Armor[3]=(Armor[2]-Armor[1])/(Tiers-1);
-    cout<<"How many Stats(max 10): ";
+
+    cout<<"\nHow many Stats(max 10): ";
     cin>>Statcnt;
     cin.ignore();
 
@@ -191,7 +194,7 @@ int main()
             StatData[a][4]=(StatData[a][3]-StatData[a][2])/(Tiers-1);
             cout<<""<< StatData[a][4] <<"\n";
         };
-        cout<<"\n1=Meta :: 2=Red :: 4=Yellow :: 8=Blue\n";
+        cout<<"\n0=none :: 1=Meta :: 2=Red :: 4=Yellow :: 8=Blue\n";
 
             for(j=1;j<=3;j=j+1)
 	            {
@@ -206,7 +209,7 @@ int main()
             for(t=1;t<=Tiers;t=t+1)
 	            {
 	                SQLfile <<",\n-- Tier-"<< t <<"\n-- ";
-	
+
 	                for(i=1;i<=8;i=i+1)
 		                {
 		                   SQLfile << ",\n("<< ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][1] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i] <<"_T"<< t <<"', "<< DispId[Pclass][t][i] <<", "<< Iquality <<", "<< Buycnt <<", "<< InvData[i] <<", " << ClassData[Pclass][0] <<", "<< Armorlvl <<", "<< Statcnt <<"";
