@@ -148,9 +148,9 @@ int main()
     cin>>Tiers;
     cin.ignore();
 
-    cout<<"\n(1=Warrior :: 2=Paladin :: 3=Hunter :: 4=Rogue :: 5=Priest)\n";
-    cout<<"(6=DK :: 7=Shaman :: 8=Mage :: 9=Warlock :: 10=Druid)\n";
-    cout<<"Player Class(1-10): ";
+    cout<<"\n(1=Warrior :: 2=Paladin :: 3=Hunter :: 4=Rogue :: 5=Priest)";
+    cout<<"\n(6=DK :: 7=Shaman :: 8=Mage :: 9=Warlock :: 10=Druid)";
+    cout<<"\nPlayer Class(1-10): ";
     cin>>Pclass;
     cin.ignore();
 
@@ -158,8 +158,7 @@ int main()
     cin>>Iquality;
     cin.ignore();
 
-    cout<<"\n-level required-";
-    cout<<"Armor Level: ";
+    cout<<"Required Level: ";
     cin>>Armorlvl;
     cin.ignore();
 
@@ -170,7 +169,7 @@ int main()
      cout<<"Armor Maximum: ";
     cin>>Armor[2];
     cin.ignore();
-    Armor[3]=(Armor[2]-Armor[1])/(Tiers-1);
+    Armor[3]=((Armor[2]-Armor[1])/(Tiers-1));
 
     cout<<"\nHow many Stats(max 10): ";
     cin>>Statcnt;
