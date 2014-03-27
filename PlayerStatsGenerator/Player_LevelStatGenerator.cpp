@@ -6,8 +6,7 @@
 
 using namespace std;
 
-int race,cclass,lvls,lvlf,str,agi,sta,inte,spi,l;
-float strm,agim,stam,intem,spim;
+int race,cclass,lvls,lvlf,strs,strf,strm,agis,agif,agim,stas,staf,stam,intes,intef,intem,spis,spif,spim,l;
 
 int main()
 {
@@ -40,34 +39,45 @@ int main()
     cin>>lvlf;
     cin.ignore();
 
-    cout<<"\nEnter Agility Start: ";
-    cin>>agi;
+    cout<<"\nEnter strength Start: ";
+    cin>>strs;
     cin.ignore();
+    cout<<"Enter strength end: ";
+    cin>>strf;
+    cin.ignore();
+    strm=((strf-strs)/((lvlf-lvls)-1));
 
-    cout<<"\nEnter Agility % modifier x.xxxx: ";
-    cin>>agim;
+    cout<<"\nEnter Agility Start: ";
+    cin>>agis;
     cin.ignore();
+    cout<<"Enter Agility end: ";
+    cin>>agif;
+    cin.ignore();
+    agim=((agif-agis)/((lvlf-lvls)-1));
 
     cout<<"\nEnter Stamina Start: ";
-    cin>>sta;
+    cin>>stas;
     cin.ignore();
-    cout<<"\nEnter Stamina % modifier x.xxxx: ";
-    cin>>stam;
+    cout<<"Enter Stamina end: ";
+    cin>>staf;
     cin.ignore();
+    stam=((staf-stas)/((lvlf-lvls)-1));
 
     cout<<"\nEnter Intellect Start: ";
-    cin>>inte;
+    cin>>intes;
     cin.ignore();
-    cout<<"\nEnter Intellect % modifier x.xxxx: ";
-    cin>>intem;
+    cout<<"Enter Intellect end: ";
+    cin>>intef;
     cin.ignore();
+    intem=((intef-intes)/((lvlf-lvls)-1));
 
     cout<<"\nEnter Spirit Start: ";
-    cin>>spi;
+    cin>>spis;
     cin.ignore();
-    cout<<"\nEnter Spirit % modifier x.xxxx: ";
-    cin>>spim;
+    cout<<"Enter Spirit end: ";
+    cin>>spif;
     cin.ignore();
+    spim=((spif-spis)/((lvlf-lvls)-1));
 
     ofstream SQLfile;
         SQLfile.open ("Player_LevelStats.sql");
@@ -76,12 +86,12 @@ int main()
 
             for(l=lvls;l<=lvlf;l=l+1)
             {
-                SQLfile << ",\n("<< race <<", "<< cclass <<", "<< l <<", "<< str <<", "<< agi <<", "<< sta <<", "<< inte <<", "<< spi <<")";
-                str=(str+(str*strm));
-                agi=(agi+(agi*agim));
-                sta=(sta+(sta*stam));
-                inte=(inte+(inte*intem));
-                spi=(spi+(spi*spim));
+                SQLfile << ",\n("<< race <<", "<< cclass <<", "<< l <<", "<< strs <<", "<< agis <<", "<< stas <<", "<< intes <<", "<< spis <<")";
+                strs=(strs+strm);
+                agis=(agis+agim);
+                stas=(stas+stam);
+                intes=(intes+intem);
+                spis=(spis+spim);
           }
 
     SQLfile << ";\n";
