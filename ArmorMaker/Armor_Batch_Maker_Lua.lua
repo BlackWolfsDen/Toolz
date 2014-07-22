@@ -105,8 +105,8 @@ ClassName = {
 			};
 tiercnt = 0
 EntryId = Start
-local File = io.open("lua_scripts/ADMIN/"..ClassName[Class][2].."_armour.sql", "w")
-File:write("REPLACE INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `BuyCount`, `InventoryType`, `AllowableClass`, `ItemLevel`, `StatsCount`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `stat_type4`, `stat_value4`, `stat_type5`, `stat_value5`, `stat_type6`, `stat_value6`, `stat_type7`, `stat_value7`, `stat_type8`, `stat_value8`, `stat_type9`, `stat_value9`, `stat_type10`, `stat_value10`, `armor`, `socketColor_1`, `socketColor_2`, `socketColor_3`) VALUES\n\n")
+local file = io.open("lua_scripts/ADMIN/"..ClassName[Class][2].."_armour.sql", "w")
+file:write("REPLACE INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `BuyCount`, `InventoryType`, `AllowableClass`, `ItemLevel`, `StatsCount`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `stat_type4`, `stat_value4`, `stat_type5`, `stat_value5`, `stat_type6`, `stat_value6`, `stat_type7`, `stat_value7`, `stat_type8`, `stat_value8`, `stat_type9`, `stat_value9`, `stat_type10`, `stat_value10`, `armor`, `socketColor_1`, `socketColor_2`, `socketColor_3`) VALUES\n\n")
 
 --[[
 	for c = 1, 10 do -- this will belch out entries for all classes USING stat data provided above DONT USE unless u understand what this does
