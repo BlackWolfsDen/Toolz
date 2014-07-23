@@ -1,4 +1,4 @@
--- by slp13at420 of Emudevs.com for blackwolfsden.dyndns-free.com
+-- by slp13at420 of Emudevs.com for blackwolfsden a non-profit server.
 -- this will build full armor set tier by tier with scaled stats
 -- only does 1 class at a time and then restart to do next class
 -- could be modified to use input live ingame to build each class without restarting
