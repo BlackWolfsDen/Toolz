@@ -105,7 +105,7 @@ FClassName = {
 			};
 ClassName = {}; -- used for sql names only
 ClassName = {
-	[1] = {1,"|cFFC79C6Ewarrior",4},
+	[1] = {1,"warrior",4},
 	[2] = {2,"paladin",4},
 	[3] = {4,"hunter",3},
 	[4] = {8,"rogue",2},
@@ -119,19 +119,22 @@ ClassName = {
 tiercnt = 0
 EntryId = Start
 local file = io.open("lua_scripts/ADMIN/"..(FClassName[Class][2]).."_armour.sql", "w")
-file:write("REPLACE INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `BuyCount`, `InventoryType`, `AllowableClass`, `ItemLevel`, `StatsCount`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `stat_type4`, `stat_value4`, `stat_type5`, `stat_value5`, `stat_type6`, `stat_value6`, `stat_type7`, `stat_value7`, `stat_type8`, `stat_value8`, `stat_type9`, `stat_value9`, `stat_type10`, `stat_value10`, `armor`, `socketColor_1`, `socketColor_2`, `socketColor_3`) VALUES\n\n")
+file:write("REPLACE INTO `item_template` (`entry`, `class`, `subclass`, `name`, `displayid`, `Quality`, `BuyCount`, `InventoryType`, `AllowableClass`, `ItemLevel`, `StatsCount`, `stat_type1`, `stat_value1`, `stat_type2`, `stat_value2`, `stat_type3`, `stat_value3`, `stat_type4`, `stat_value4`, `stat_type5`, `stat_value5`, `stat_type6`, `stat_value6`, `stat_type7`, `stat_value7`, `stat_type8`, `stat_value8`, `stat_type9`, `stat_value9`, `stat_type10`, `stat_value10`, `armor`, `socketColor_1`, `socketColor_2`, `socketColor_3`) VALUES")
 
-		file:write("-- "..ClassName[Class][2].."\n")
+		file:write("\n\n-- "..ClassName[Class][2].."")
 			for t = 1, Tiers do
-				file:write("-- Tier "..t.."\n")
+		file:write(",")
+				file:write("\n-- Tier "..t.."")
 	
 					for i = 1, 8 do
-						file:write("("..(EntryId+((10*t)-10)+i)+((Class*100)-(100))..", "..ItemClass..", "..ClassName[Class][3]..", '"..ClassName[Class][2].."_"..Invdata[i][2].."_T"..t.."', "..DispId[t][i]..", "..Quality..", 1, "..Invdata[i][1]..", "..ClassName[Class][1]..", "..Level..", "..Statcnt..", "..Stat1..", "..(Stat1a+((Stat1stp*t)-Stat1stp))..", "..Stat2..", "..(Stat2a+((Stat2stp*t)-Stat2stp))..", "..Stat3..", "..(Stat3a+((Stat3stp*t)-Stat3stp))..", "..Stat4..", "..(Stat4a+((Stat4stp*t)-Stat4stp))..", "..Stat5..", "..(Stat5a+((Stat5stp*t)-Stat5stp))..", "..Stat6..", "..(Stat6a+((Stat6stp*t)-Stat6stp))..", "..Stat7..", "..(Stat7a+((Stat7stp*t)-Stat7stp))..", "..Stat8..", "..(Stat8a+((Stat8stp*t)-Stat8stp))..", "..Stat9..", "..(Stat9a+((Stat9stp*t)-Stat9stp))..", "..Stat10..", "..(Stat10a+((Stat10stp*t)-Stat10stp))..", "..(Armora+((Armorstp*t)-Armorstp))..", "..Socket1..", "..Socket2..", "..Socket3.."),\n")
-						print("Class: "..ClassName[Class][2].." :: tier: "..t.." :: item: "..i)
+						file:write(",\n")
+						file:write("("..(EntryId+((10*t)-10)+i)+((Class*100)-(100))..", "..ItemClass..", "..ClassName[Class][3]..", '"..ClassName[Class][2].."_"..Invdata[i][2].."_T"..t.."', "..DispId[t][i]..", "..Quality..", 1, "..Invdata[i][1]..", "..ClassName[Class][1]..", "..Level..", "..Statcnt..", "..Stat1..", "..(Stat1a+((Stat1stp*t)-Stat1stp))..", "..Stat2..", "..(Stat2a+((Stat2stp*t)-Stat2stp))..", "..Stat3..", "..(Stat3a+((Stat3stp*t)-Stat3stp))..", "..Stat4..", "..(Stat4a+((Stat4stp*t)-Stat4stp))..", "..Stat5..", "..(Stat5a+((Stat5stp*t)-Stat5stp))..", "..Stat6..", "..(Stat6a+((Stat6stp*t)-Stat6stp))..", "..Stat7..", "..(Stat7a+((Stat7stp*t)-Stat7stp))..", "..Stat8..", "..(Stat8a+((Stat8stp*t)-Stat8stp))..", "..Stat9..", "..(Stat9a+((Stat9stp*t)-Stat9stp))..", "..Stat10..", "..(Stat10a+((Stat10stp*t)-Stat10stp))..", "..(Armora+((Armorstp*t)-Armorstp))..", "..Socket1..", "..Socket2..", "..Socket3..")")
+--						print("Class: "..ClassName[Class][2].." :: tier: "..t.." :: item: "..i)
 					end
 				local EntryId = EntryId+2 -- cause a 2 entry air gap between tiers. syncronicity across class's for top o the head in-game .add item
 			end
 
-file:write("-- NOW AT THE END OF THE LINE ABOVE ^ CHANGE THE LAST COMMA `,` TO A SEMI_COLON `;` .")
+file:write(";\n")
+--file:write("-- NOW AT THE END OF THE LINE ABOVE ^ CHANGE THE LAST COMMA `,` TO A SEMI_COLON `;` .")
 file:close()
 print("Done")
