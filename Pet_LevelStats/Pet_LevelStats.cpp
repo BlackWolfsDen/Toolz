@@ -95,7 +95,7 @@ int main()
     cin.ignore();
 
     ofstream SQLfile;
-        SQLfile.open ("Pet_LevelStats.sql");
+        SQLfile.open ("GRUMBO_Pet_LevelStats.sql");
         SQLfile << "REPLACE INTO `pet_levelstats` (`creature_entry`, `level`, `hp`, `mana`, `armor`, `str`, `agi`, `sta`, `inte`, `spi`) VALUES\n";
         SQLfile <<"\n-- creature "<< pet <<" level "<< lvls <<"-"<< lvlf <<"";
 
