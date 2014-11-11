@@ -104,7 +104,7 @@ int main()
     damageB[2]=((damageB[1]-damageB[0])/(lvlf-lvls));
 
     ofstream SQLfile;
-    SQLfile.open ("Creature_Class_Stats.sql");
+    SQLfile.open ("GRUMBOZ_Creature_Class_Stats.sql");
     SQLfile << "REPLACE INTO `creature_classlevelstats` (`level`, `class`, `basehp0`, `basehp1`, `basehp2`, `basemana`, `basearmor`, `attackpower`, `rangedattackpower`, `damage_base`) VALUES\n";
     SQLfile <<"\n-- Class "<< cclass <<" levels: "<< lvls <<"-"<< lvlf <<"";
 
