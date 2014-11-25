@@ -2,6 +2,7 @@
 // another stupid lil tool from the mad scientist @ emudevs.com slp13at420
 #include <iostream>
 #include <fstream>
+#include <math.h>
 
 using namespace std;
 
@@ -214,7 +215,7 @@ int main()
 		                   SQLfile << ",\n("<< ((EntryIdStrt+((100*t)-100)+i)+((Pclass*10)-(10))) <<", "<< Iclass <<", "<< ClassData[Pclass][1] <<", '"<< ClassName[Pclass] <<"_"<< InvName[i] <<"_T"<< t <<"', "<< DispId[Pclass][t][i] <<", "<< Iquality <<", "<< Buycnt <<", "<< InvData[i] <<", " << ClassData[Pclass][0] <<", "<< Armorlvl <<", "<< Statcnt <<"";
 		                        for(sc=1;sc<=10;sc=sc+1)
 		                            {
-		                                SQLfile <<", "<< StatData[sc][1] <<", " << (StatData[sc][2]+((StatData[sc][4]*t)-StatData[sc][4])) <<"";
+		                                SQLfile <<", "<< StatData[sc][1] <<", " << ceil(StatData[sc][2]+((StatData[sc][4]*t)-StatData[sc][4])) <<"";
 		                            }
 		                    SQLfile <<", "<< (Armor[1]+((Armor[3]*t)-Armor[3])) <<"";
 		                        for(gc=1;gc<=3;gc=gc+1)
