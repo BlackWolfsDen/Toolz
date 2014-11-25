@@ -110,7 +110,7 @@ int main()
                 agiv=agiv+((agif-agis)/(lvlf-lvls));
                 stav=stav+((staf-stas)/(lvlf-lvls));
                 intev=intev+((intef-intes)/(lvlf-lvls));
-                spiv=spiv+((spif*spis)/(lvlf-lvls));
+                spiv=spiv+((spif-spis)/(lvlf-lvls));
           }
 
     SQLfile << ";\n";
