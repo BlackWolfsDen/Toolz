@@ -4,7 +4,7 @@
 -- just replace into your patch file and your dbc folder, empty cache and restart world.exe's. no more `?`'s.
 
 -- Just create a folder `lua_scripts/ADMIN` and add this script there. restart , login, then type `/s #patchit`.
--- 10-April-2016 i did update this so it will process this in ascending order of item id. so if you ever have to open the item.dbc to edit , it will beasy easy to read in order.
+-- 10-April-2016 i did update this so it will process entries in ascending order of item id. so if you ever have to open the item.dbc to edit , it will beasy easy to read in order.
 
 local RequiredRank = 3 -- is default admin rank on TC
 local Command = "#patchit";
