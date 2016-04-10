@@ -37,7 +37,7 @@ local function main(event, player, msg)
 			--No, the last two concatinations aren't needed. it's just easier to see the individual bytes that way
 			file:write("WDBC" .. format(rowCount) .. "\8\0\0\0" .. "\32\0\0\0" .."\1\0\0\0");
 			
-			repeat
+			repeat -- changed from a for loop
 				local entry = query:GetUInt32(0);
 				local class = query:GetUInt8(1);
 				local subclass = query:GetUInt8(2);
@@ -50,9 +50,11 @@ local function main(event, player, msg)
 				local row = {format(entry), format(class), format(subclass), format(sound), format(material), format(display), format(invtype), format(sheath)};
 				file:write(table.concat(row));
 				
-			until not query:NextRow();
---			end
-			
+			until not query:NextRow(); -- now loops till last rather than splatering what ever lol 
+						-- dunno why it did that since it logically looks 
+						-- right. its just how it handles numbers with likenessess.
+						-- so this will fix it so its a clean looking file.
+
 			file:write("\0");
 			file:flush();
 			file:close();
